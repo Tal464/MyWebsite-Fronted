@@ -6,9 +6,9 @@ import Skill from "../elements/Skill"
 function buildSkillsRow(skills, start, end) {
   const batch = skills.slice(start, end);
   let skillsComponents = [];
-  batch.forEach((value, indx) => {
+  batch.forEach((value, index) => {
     skillsComponents.push(
-      <div key={indx} className="column is-3">
+      <div key={index} className="column is-3">
         <Skill
           text={value.name}
           icon={value.x_icon}
@@ -26,10 +26,7 @@ function Skills() {
       <div className="container">
         <h1 className="title">Skills</h1>
         <div className="columns">
-          {buildSkillsRow(Resume.skills, 0, 4)}
-        </div>
-        <div className="columns">
-          {buildSkillsRow(Resume.skills, 4, 8)}
+          {buildSkillsRow(Resume.skills, 0, 3)}
         </div>
       </div>
     </section>

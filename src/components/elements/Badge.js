@@ -1,7 +1,7 @@
 import React from "react";
 
 function Badge(props) {
-  const faIcon = "fas fa-1x " + props.faIcon;
+  const faIcon = "fa-solid " + props.faIcon;
   return (
     <div className="control">
       <div className="tags has-addons">

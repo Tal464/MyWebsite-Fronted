@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
-import Resume from "../../resume.json";
+// import Resume from "../../resume.json";
 
 function Hero() {
+  const [Resume,setResume] = useState({});
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/");
+        const data = await response.json();
+        setResume(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
-    <section className="hero is-dark is-fullheight has-bg-image">
+    (Object.keys(Resume).length !== 0) && <section className="hero is-dark is-fullheight has-bg-image">
       <div className="hero-head">
         <NavBar />
       </div>
       <div className="hero-body">
         <div className="container">
           <p className="subtitle is-5 has-text-weight-light">I'm a</p>
-          <h1 className="title">{Resume.basics.label}</h1>
+          <h1 className="title">{Resume.basics.jobTitle}</h1>
           <h2 className="subtitle">
             {Resume.basics.location.region}, {Resume.basics.location.country}
           </h2>

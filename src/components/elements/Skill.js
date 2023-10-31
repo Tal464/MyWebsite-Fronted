@@ -6,7 +6,7 @@ function Skill(props) {
             <div className="card-content">
                 <div className="media">
                     <div className="media-left">
-                        <span className={`skill-icon has-text-link is-size-3 fa-solid ${props.icon}`}></span>
+                        <span className={`has-text-link is-size-7 fa-solid ${props.icon}`}></span>
                     </div>
                     <div className="media-content">
                         <p className="skill-title is-size-6">{props.text}</p>
